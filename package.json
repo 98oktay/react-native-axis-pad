@@ -1,0 +1,26 @@
+{
+  "name": "react-native-axis-pad",
+  "version": "0.9.0",
+  "description": "A virtual joystick for touch capable mobile devices.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/98oktay/react-native-axis-pad.git"
+  },
+  "keywords": [
+    "joystick",
+    "gamepad",
+    "multitouch",
+    "game",
+    "controller"
+  ],
+  "author": "Oktay Baskus <98oktay@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/98oktay/react-native-axis-pad/issues"
+  },
+  "homepage": "https://github.com/98oktay/react-native-axis-pad#readme"
+}
