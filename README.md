@@ -2,7 +2,8 @@
 > A virtual joystick for touch capable mobile devices.
 
 [![npm](https://img.shields.io/npm/v/react-native-axis-pad.svg)](https://npmjs.org/package/nipplejs)
-[![npm](https://img.shields.io/npm/dm/react-native-axis-pad.svg)](https://npmjs.org/package/react-native-axis-pad)
+[![downloads](https://img.shields.io/npm/dm/react-native-axis-pad.svg)](https://npmjs.org/package/react-native-axis-pad)
+[![keywords](https://img.shields.io/github/package-json/keywords/98oktay/react-native-axis-pad.svg)](test)
 
 # Table Of Contents
 <details>
