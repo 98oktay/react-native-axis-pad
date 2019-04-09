@@ -17,7 +17,6 @@
 - [Props](#props)
   * [`step`](#step)
   * [`onValue`](#onvalue)
-  * [`step`](#step)
 - [Contributing](#contributing)
 
 <!-- tocstop -->

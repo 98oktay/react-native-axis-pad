@@ -11,6 +11,7 @@
     "url": "git+https://github.com/98oktay/react-native-axis-pad.git"
   },
   "keywords": [
+    "react-native",
     "joystick",
     "gamepad",
     "multitouch",
