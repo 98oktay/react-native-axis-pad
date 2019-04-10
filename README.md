@@ -45,6 +45,7 @@ Import it the way you want into your project :
 // import module
 import AxisPad from 'react-native-axis-pad';
 ```
+### Single Stick
 
 ```javascript
 // render
@@ -57,6 +58,28 @@ import AxisPad from 'react-native-axis-pad';
     }}>
     <Text>Optional Component</Text>
 </AxisPad>
+```
+
+### Dual Stick
+
+```javascript
+// render
+<View style={{flexDirection:'row',justifyContent: 'space-around', alignItems: 'center'}}>
+    <AxisPad
+        resetOnRelease={true}
+        autoCenter={true}
+        onValue={({ x, y }) => {
+            // values are between -1 and 1
+            console.log(x, y);
+        }} />
+    <AxisPad
+        resetOnRelease={true}
+        autoCenter={true}
+        onValue={({ x, y }) => {
+            // values are between -1 and 1
+            console.log(x, y);
+        }} />
+</View>
 ```
 
 ## Props
