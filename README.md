@@ -45,7 +45,7 @@ Import it the way you want into your project :
 // import module
 import AxisPad from 'react-native-axis-pad';
 ```
-### Single Stick
+##### Single Stick
 
 ```javascript
 // render
@@ -60,8 +60,8 @@ import AxisPad from 'react-native-axis-pad';
 </AxisPad>
 ```
 
-### Dual Stick
-
+##### Dual Stick
+**_Note_**: Multi-touch for Android is not supported yet!
 ```javascript
 // render
 <View style={{flexDirection:'row',justifyContent: 'space-around', alignItems: 'center'}}>

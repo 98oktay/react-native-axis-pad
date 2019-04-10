@@ -1,6 +1,6 @@
 {
   "name": "react-native-axis-pad",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "A virtual joystick for touch capable mobile devices.",
   "main": "index.js",
   "scripts": {
