@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Animated, Easing } from 'react-native';
+import { Animated, Easing, Platform, Text } from 'react-native';
 import AxisPadStyle from './AxisPadStyle';
 
 export default class AxisPad extends Component {
@@ -11,7 +11,7 @@ export default class AxisPad extends Component {
         this.anim_py = new Animated.Value(0);
 
         this.state = {
-            touchIndex: 0,
+            identifier: 0,
             cx: 0,
             cy: 0,
             sx: 0,
@@ -113,15 +113,32 @@ export default class AxisPad extends Component {
         })
     }
 
+    getTouchPoint(touches, identifier) {
+        let touchItem = null;
+
+        touches.map((item) => {
+            if (item.identifier === identifier) {
+                touchItem = item;
+            }
+        });
+
+        return touchItem;
+    }
+
     onTouchStart(evt) {
-        if (evt.nativeEvent.identifier && evt.nativeEvent.touches[evt.nativeEvent.identifier - 1]) {
-            const { pageX, pageY } = evt.nativeEvent.touches[evt.nativeEvent.identifier - 1];
+
+        const identifier = evt.nativeEvent.identifier;
+        const touchItem = this.getTouchPoint(evt.nativeEvent.touches, identifier);
+        console.log(evt.nativeEvent.touches, identifier, touchItem);
+
+        if (typeof identifier === "number" && touchItem) {
+            const { pageX, pageY } = touchItem;
 
             if (this.props.autoCenter) {
                 this.centerPosition(pageX, pageY);
                 this.sendValue(this.state.px, this.state.py);
                 this.setState({
-                    touchIndex: evt.nativeEvent.identifier - 1,
+                    identifier,
                     sx: pageX,
                     sy: pageY
                 });
@@ -135,8 +152,9 @@ export default class AxisPad extends Component {
     }
 
     onTouchMove(evt) {
-        if (evt.nativeEvent.touches[this.state.touchIndex]) {
-            const { pageX, pageY } = evt.nativeEvent.touches[this.state.touchIndex];
+        const touchItem = this.getTouchPoint(evt.nativeEvent.touches, this.state.identifier);
+        if (touchItem) {
+            const { pageX, pageY } = touchItem;
 
             let px = this.props.lockX ? 0 : pageX - this.state.sx + this.state.dx;
             let py = this.props.lockY ? 0 : pageY - this.state.sy + this.state.dy;
@@ -189,7 +207,7 @@ export default class AxisPad extends Component {
                 onTouchEnd={this.onTouchEnd}
                 onTouchCancel={this.onTouchCancel}
                 onTouchMove={this.onTouchMove}
-                style={[AxisPadStyle.wrapper, {
+                style={[AxisPadStyle.wrapper, this.props.wrapperStyle ? this.props.wrapperStyle : {}, {
                     width: this.state.width,
                     height: this.state.width,
                     transform: [{
@@ -201,7 +219,7 @@ export default class AxisPad extends Component {
                 ref={view => { this.wrapperElement = view; }}>
                 <Animated.View
                     ref={view => { this.handlerElement = view; }}
-                    style={[AxisPadStyle.handler, {
+                    style={[AxisPadStyle.handler, this.props.handlerStyle ? this.props.handlerStyle : {}, {
                         width: this.state.handler,
                         height: this.state.handler,
                         transform: [{

@@ -65,6 +65,8 @@ You can configure your axis pad in react-native props :
 ```javascript
     size: Integer,              // Wrapper circle size. Default: 300
     handlerSize : Intager,      // Handler circle size. Default: 150
+    wrapperStyle : Object,      // Wrapper circle styles.
+    handlerStyle : Object,      // Handler circle styles.
     step: Float,                // Step size for values. Default: 0
     lockX: Boolean,             // Block to X axis movement. Default: false
     lockY: Boolean,             // Block to Y axis movement. Default: false
