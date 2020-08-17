@@ -43,7 +43,8 @@ export default class AxisPad extends Component {
             {
                 toValue: this.state.cx,
                 duration: 300,
-                easing: Easing.elastic()
+                easing: Easing.elastic(),
+                useNativeDriver: true
             }
         ).start();
         Animated.timing(
@@ -51,7 +52,8 @@ export default class AxisPad extends Component {
             {
                 toValue: this.state.cy,
                 duration: 300,
-                easing: Easing.elastic()
+                easing: Easing.elastic(),
+                useNativeDriver: true
             }
         ).start();
     }
@@ -62,7 +64,8 @@ export default class AxisPad extends Component {
             {
                 toValue: this.state.px,
                 duration: 50,
-                easing: Easing.out(Easing.exp)
+                easing: Easing.out(Easing.exp),
+                useNativeDriver: true
             }
         ).start();
         Animated.timing(
@@ -70,7 +73,8 @@ export default class AxisPad extends Component {
             {
                 toValue: this.state.py,
                 duration: 50,
-                easing: Easing.out(Easing.exp)
+                easing: Easing.out(Easing.exp),
+                useNativeDriver: true
             }
         ).start()
     }
@@ -89,9 +93,9 @@ export default class AxisPad extends Component {
     }
 
     centerPosition(pageX, pageY) {
-        this.handlerElement._component.measure((fx, fy, width, height, px, py) => {
-            cx = pageX - px - width / 2
-            cy = pageY - py - height / 2
+        this.handlerElement.getNode().measure((fx, fy, width, height, px, py) => {
+            const cx = pageX - px - width / 2
+            const cy = pageY - py - height / 2
             this.setState({
                 cx,
                 cy
@@ -101,7 +105,7 @@ export default class AxisPad extends Component {
 
     setPosition(pageX, pageY, after) {
         let { dx, dy } = this.state;
-        this.wrapperElement._component.measure((fx, fy, width, height, px, py) => {
+        this.wrapperElement.getNode().measure((fx, fy, width, height, px, py) => {
             const cx = px + width / 2;
             const cy = py + height / 2;
             this.setState({
