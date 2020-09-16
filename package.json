@@ -23,5 +23,10 @@
   "bugs": {
     "url": "https://github.com/98oktay/react-native-axis-pad/issues"
   },
-  "homepage": "https://github.com/98oktay/react-native-axis-pad#readme"
+  "homepage": "https://github.com/98oktay/react-native-axis-pad#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-native": "^0.63.2",
+    "react-test-renderer": "^16.13.1"
+  }
 }

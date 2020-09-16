@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-export default AxisPadStyle = StyleSheet.create({
+export default StyleSheet.create({
     wrapper: {
         width: 300,
         height: 300,

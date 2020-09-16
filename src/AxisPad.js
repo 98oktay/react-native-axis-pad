@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Animated, Easing, Platform, Text } from 'react-native';
+import { Animated, Easing } from 'react-native';
 import AxisPadStyle from './AxisPadStyle';
 
 export default class AxisPad extends Component {
